@@ -169,14 +169,4 @@ It showcases:
 
 This project serves as a strong foundation for building full-stack habit tracking systems and production-ready applications.
 
----
 
-## 👨‍💻 Author
-
-**Charan Pathakota**
-
----
-
-## ⭐ Support
-
-If you found this project useful, consider giving it a ⭐ on GitHub!
