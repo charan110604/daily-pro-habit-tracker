@@ -1,73 +1,182 @@
-# React + TypeScript + Vite
+# 📅 Daily Pro – Smart Habit Tracking System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, scalable habit tracking web application built using React and TypeScript.
+Daily Pro helps users build consistency, track habits effectively, and visualize their progress through a clean, calendar-based interface.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📌 Project Overview
 
-## React Compiler
+Maintaining daily habits is challenging due to lack of structure, poor visualization, and inconsistent tracking methods. Many users rely on scattered tools, which leads to reduced motivation and fragmented progress tracking.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**Daily Pro solves this problem** by providing a centralized, interactive platform where users can:
 
-## Expanding the ESLint configuration
+* Track daily habits
+* Monitor progress visually
+* Record mood patterns
+* Stay consistent with a structured workflow
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+The application uses a **calendar-first design**, making it intuitive and easy to manage daily routines.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🛠️ Tech Stack
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+* **Frontend:** React (Functional Components), TypeScript
+* **UI Library:** Material UI
+* **Routing:** React Router
+* **State Management:** useReducer + Context API
+* **Persistence:** LocalStorage
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🧩 Architecture Overview
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+The application follows a clean and modular frontend architecture:
+
+* Centralized state using **useReducer**
+* Global state exposure via **Context API**
+* Authentication handled through **AuthContext**
+* Protected routes using **Higher Order Components (HOC)**
+* LocalStorage used for persistence (month-wise data)
+
+Key modules include:
+
+* `AuthContext` – handles login/logout state
+* `ProtectedRoute` – restricts unauthorized access
+* `useAuth` – custom hook for simplified auth handling
+* `Calendar Reducer` – manages habits, moods, and state transitions
+
+---
+
+## 🔄 Workflow
+
+The system follows a structured user flow:
+
+1. User logs in through authentication system
+2. Access to protected dashboard is granted
+3. User adds habits dynamically
+4. Daily habit completion is tracked
+5. Mood is recorded alongside habits
+6. Data is reflected in a monthly calendar view
+7. All data is persisted locally for future sessions
+
+---
+
+## ⭐ Key Highlights
+
+* ✔ Fully normalized and scalable state management
+* ✔ Calendar-based habit visualization
+* ✔ Dynamic habit addition and tracking
+* ✔ Mood tracking integration
+* ✔ Protected routes with authentication
+* ✔ Persistent storage using LocalStorage
+* ✔ Modular and reusable component design
+* ✔ Performance-optimized rendering
+* ✔ Clean and maintainable architecture
+
+---
+
+## 🚀 Core Features
+
+### 📅 Habit Tracking
+
+* Add habits dynamically
+* Track completion status daily
+* Automatic mapping across calendar days
+
+### 😊 Mood Tracking
+
+* Record mood per day
+* Associate emotions with habits
+* Improve self-awareness and analysis
+
+### 🔐 Authentication
+
+* Login and logout functionality
+* Context-based authentication
+* Protected routes for secure access
+
+### 📊 Calendar View
+
+* Monthly overview of habits
+* Visual representation of progress
+* Easy navigation across dates
+
+### 💾 Persistence
+
+* Data stored using LocalStorage
+* No backend required for MVP
+* Offline-friendly experience
+
+---
+
+## ⚡ Performance Optimization
+
+The application is optimized for smooth performance:
+
+* Memoization using `useMemo`
+* Efficient reducer-based updates
+* Minimal re-renders using pure components
+* Cached calendar generation logic
+
+This ensures fast UI interactions and scalability even with multiple habits.
+
+---
+
+## 🧱 Component Design
+
+The UI is built with modular and reusable components:
+
+* **HabitCell** – Handles daily habit toggling
+* **MoodSelector** – Allows mood selection per day
+* **HabitDetails** – Displays habit history and actions
+
+Each component follows a **single-responsibility principle**, making the system easy to extend and maintain.
+
+---
+
+## 📊 Data Handling
+
+* Initial data is loaded via simulated API
+* State is managed centrally using reducer
+* Month-based data stored in LocalStorage
+* Key format: `calendar-year-month`
+
+---
+
+## 🔮 Future Improvements
+
+* 🔗 Backend API integration for real-time data
+* 👤 User-based accounts with cloud storage
+* 📊 Advanced analytics dashboard (streaks, graphs, insights)
+* 🔄 Multi-device synchronization
+* 📱 Mobile application development
+* 🔔 Notifications and reminders
+* 🧪 Unit and integration testing
+
+---
+
+## 🎯 Conclusion
+
+Daily Pro demonstrates a **professional frontend architecture** using modern React practices.
+It showcases:
+
+* Scalable state management
+* Clean component design
+* Real-world problem solving
+* Performance optimization techniques
+
+This project serves as a strong foundation for building full-stack habit tracking systems and production-ready applications.
+
+---
+
+## 👨‍💻 Author
+
+**Charan Pathakota**
+
+---
+
+## ⭐ Support
+
+If you found this project useful, consider giving it a ⭐ on GitHub!
