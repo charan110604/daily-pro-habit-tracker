@@ -1,0 +1,55 @@
+.appbar {
+  background: linear-gradient(90deg, #0f172a, #1e293b);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  color: #fff;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 28px;
+  min-height: 64px;
+}
+
+/* LEFT */
+.left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logoIcon {
+  color: #38bdf8;
+  font-size: 26px;
+}
+
+.logoText {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #fff;
+}
+
+/* RIGHT */
+.right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.iconBtn {
+  color: #cbd5e1;
+  transition: all 0.2s ease;
+}
+
+.iconBtn:hover {
+  background: rgba(255,255,255,0.08);
+  color: #38bdf8;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  font-size: 14px;
+  background: linear-gradient(135deg, #38bdf8, #6366f1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
